@@ -17,6 +17,7 @@ holdSocket() {
   this.socket = io(this.url);
   this.socket.on('connected', () => {
     console.log('here now');
+    return this.socket;
   })
 } 
 
