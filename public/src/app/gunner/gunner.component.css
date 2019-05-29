@@ -14,3 +14,16 @@ img {
   position: absolute;
   width: 1280px;
 }
+
+.health_outer {
+  border: 3px black solid;
+  /* box-sizing: border-box; */
+  height: 40px;
+  width: 500px;
+}
+
+.health_inner {
+  background-color: red;
+  height: 40px;
+  width: 500px;
+}

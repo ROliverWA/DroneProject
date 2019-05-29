@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gunner.component.css']
 })
 export class GunnerComponent implements OnInit {
+  health: number;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  healthloss() {
+
   }
 
 }
