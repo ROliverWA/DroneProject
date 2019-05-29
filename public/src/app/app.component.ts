@@ -1,3 +1,4 @@
+import { SocketService } from './socket.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'public';
+
+
+constructor(private socketService: SocketService) {
+
+}
+
+
+
+
+sendMsg() {
+  console.log('SendMsg Clicked');
+  this.socketService.sendMsg('message', "ZZZzzZZ Sockets");
+}
+
+
+
+
+
+
 }

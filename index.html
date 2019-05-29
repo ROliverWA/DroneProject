@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" crossorigin="anonymous">
+<head>
+    <title>Using babylon.js - How to load a scene</title>
+    <script src= 'https://cdn.babylonjs.com/babylon.js'></script>
+    <!-- <script src= 'https://cdn.babylonjs.com/babylon.js'></script> -->
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: ;
+            margin: ;
+            overflow: hidden;
+        }
+
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<script>
+        if (BABYLON.Engine.isSupported()) {
+            var canvas = document.getElementById("renderCanvas");
+            var engine = new BABYLON.Engine(canvas, true);
+    
+            BABYLON.SceneLoader.Load("./models/", "mario-sculpture.babylon", engine, function (newScene) {
+                // Wait for textures and shaders to be ready
+                newScene.executeWhenReady(function () {
+                    // Attach camera to canvas inputs
+                    newScene.activeCamera.attachControl(canvas);
+    
+                    // Once the scene is loaded, just register a render loop to render it
+                    engine.runRenderLoop(function() {
+                        newScene.render();
+                    });
+                });
+            }, function (progress) {
+                // To do: give progress feedback to user
+            });
+        }
+    </script>
+    <canvas id="renderCanvas"></canvas>
+ </body>
+</html>

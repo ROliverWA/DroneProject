@@ -1,0 +1,30 @@
+{
+  "name": "drone-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "ar-drone": "^0.3.3",
+    "ardrone-autonomy": "^0.1.2",
+    "broadway-player": "^0.1.1",
+    "dronestream": "^1.1.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.5.11",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ROliverWA/DroneProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ROliverWA/DroneProject/issues"
+  },
+  "homepage": "https://github.com/ROliverWA/DroneProject#readme"
+}
