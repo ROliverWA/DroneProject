@@ -2,10 +2,39 @@ import { SocketService } from './socket.service';
 
 
 var player_count = 0;
+var team_count = 0;
 
 
 
 var players: any = [];
+var teams: any = [];
+
+export class Team {
+    members: Object[];
+    health: number = 100;
+    missile: number = 2;
+    model: any = {};
+    drone: any = {};
+    team_id: number = 0;
+
+    constructor(members, model?, drone?) {
+        const self = this;
+        self.members = members;
+        self.team_id = team_count + 1;
+        team_count++;
+
+        let team = {
+            members: self.members,
+            health: self.health,
+            missile: self.missile,
+            model: self.model,
+            drone: self.drone,
+            id: self.team_id
+        }
+        teams.push(team);
+        console.log(teams);
+    }
+}
 
 
 
