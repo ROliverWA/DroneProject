@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "ar-drone": "^0.3.3",
+    "ar-drone": "git://github.com/felixge/node-ar-drone.git",
     "ardrone-autonomy": "^0.1.2",
     "broadway-player": "^0.1.1",
     "dronestream": "^1.1.1",
