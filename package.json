@@ -1,10 +1,13 @@
 {
-  "name": "DroneProject",
+  "name": "drone-project",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "dependencies": {
     "ar-drone": "^0.3.3",
+    "ardrone-autonomy": "^0.1.2",
+    "broadway-player": "^0.1.1",
+    "dronestream": "^1.1.1",
     "express": "^4.17.1",
     "mongoose": "^5.5.11",
     "socket.io": "^2.2.0"
@@ -18,7 +21,6 @@
     "type": "git",
     "url": "git+https://github.com/ROliverWA/DroneProject.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {

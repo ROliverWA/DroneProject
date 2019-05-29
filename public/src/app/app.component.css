@@ -1,0 +1,11 @@
+h1 {
+  text-align: center;
+}
+
+.wrapper {
+  width: 1280px;
+  height: 720px;
+  margin: 20px auto;
+  box-sizing: border-box;
+  background-color: grey;
+}

@@ -1,0 +1,16 @@
+
+.video {
+  width: 1280px;
+  height: 720px;
+  margin-top: -18.5px;
+  background-color: pink;
+}
+
+img {
+  width: 100%;
+}
+
+.video img:first-child {
+  position: absolute;
+  width: 1280px;
+}
