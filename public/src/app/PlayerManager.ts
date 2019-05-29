@@ -16,10 +16,15 @@ export class Team {
     model: any = {};
     drone: any = {};
     team_id: number = 0;
+    alive: boolean;
+    power: number = 10;
 
-    constructor(members, model?, drone?) {
+    constructor(members, model?, drone?) {        
         const self = this;
+        self.health = this.health;
+        self.missile = this.missile;        
         self.members = members;
+        this.alive = true;
         self.team_id = team_count + 1;
         team_count++;
 
@@ -34,6 +39,40 @@ export class Team {
         teams.push(team);
         console.log(teams);
     }
+
+    takeHit(damage = this.power) {
+        this.health -= damage;
+        if (this.health <= 0) {
+            this.alive = false;
+            return this;
+        }    
+        return;
+    }
+
+    shootMissile(target: Team) {
+        target.health -= 30;
+        this.missile -= 1;
+        return this;
+    }
+
+    shootLaser(target: Team) {
+        target.health -= this.power;
+        return this;
+    }
+
+
+    resetTeam() {
+        this.health = 100;
+        this.missile = 2;
+        this.alive = true;
+        return this;
+    }
+
+
+
+
+
+
 }
 
 

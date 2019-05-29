@@ -1,4 +1,3 @@
-import { Player } from './PlayerManager';
 import * as PlayerManager from './PlayerManager';
 import { SocketService } from './socket.service';
 import { Component } from '@angular/core';
