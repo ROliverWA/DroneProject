@@ -10,6 +10,7 @@
     "dronestream": "^1.1.1",
     "express": "^4.17.1",
     "mongoose": "^5.5.11",
+    "node-server-ar-drone": "^1.0.8",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {},
