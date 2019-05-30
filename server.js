@@ -3,7 +3,7 @@ const app = express();
 const path = require('path'); 
 const http = require('http');
 const gameHost = http.Server(app);
-   
+
 app.use(express.static(path.join(__dirname, 'public/dist/public')));
 app.use(express.json());
 gameHost.listen(1337, () => console.log("Listening on port 1337"));
@@ -17,17 +17,3 @@ io.on('connection', socket => {
         console.log("Message ", message);
     });
     });   
-
-    
-        
-       
-
-    
-
-
-
-
-
-
-
-
