@@ -1,7 +1,14 @@
 <div class="content">
     <div class="video">
-        <img src="assets/images/interface.png" alt="">
+        <div class="overlay">
+            <img src="assets/images/interface.png" alt="">
+            <div class="health_outer">
+                <div  class="health_inner" [@healthMeter]="healthChange"></div>
+            </div>
+        </div>
         <img src="assets/images/12.jpg" alt=""><!--Temp Image-->
     </div>
 </div>
-<button [routerLink]="['']">Home</button>
+
+<button (click)="damageTaken()">Lose health</button>
+<!-- <button [routerLink]="['']">Home</button> -->
