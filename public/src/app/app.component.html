@@ -1,6 +1,50 @@
+<<<<<<< HEAD
 <h1 [routerLink]="['']">Battle Shits</h1>
 <!-- <button (click) = 'sendMsg()'>Click it or ticket</button> -->
 
 <div class="wrapper" >
   <router-outlet #outlet="outlet"></router-outlet>
+=======
+
+
+<h1>Battle Shits</h1>
+<button (click) = 'sendMsg()'>Click it or ticket</button>
+<br>
+<!-- <div *ngIf="!game_full">
+<button (click) = "logPlayer('Pilot', 'Rob', 1)">Pilot Team 1</button>
+<button (click) = 'logPlayer("Pilot", "Joe", 2)'>Pilot Team 2</button>
+<button (click) = 'logPlayer("Gunner", "Milan", 1)'>Gunner Team 1</button>
+<button (click) = 'logPlayer("Gunner", "Denny", 2)'>Gunner Team 2</button>
+</div>
+<div  *ngIf = "game_full">
+    <button (click) = 'startGame()' >Start Game</button>
+<div >
+  <table>
+    <tr>
+      <td>Team 1</td><td>Team 2</td>
+    </tr>
+    <tr>
+      <td>{{players['1']['0']['name']}} {{players['1']['0']['role']}}</td><td>{{players['2']['0']['name']}} {{players['2']['0']['role']}}</td>
+    </tr>
+    <tr>
+      <td>{{players['1']['1']['name']}} {{players['1']['1']['role']}}</td><td>{{players['2']['1']['name']}} {{players['1']['1']['role']}}</td>
+    </tr>
+  </table>
+</div>
+<div>
+<table>
+    <tr>
+      <th>Team 1</th>
+      <td>{{team1}} Drone: {{team1['drone']}} Health: {{team1['health']}} Missiles: {{team1['missile']}} model: {{team1['model']}} team id: {{team1['team_id']}} </td>
+    </tr>
+    <tr>
+      <th>Team 2</th>
+        <td>{{team2}} Drone: {{team2['drone']}} Health: {{team2['health']}} Missiles: {{team2['missile']}} model: {{team2['model']}} team id: {{team2['team_id']}} </td>
+    </tr>
+  </table>
+</div>
+</div> -->
+<div class="wrapper">
+  <router-outlet></router-outlet>
+>>>>>>> 529c64b69ad3e853dff481b5f426d42c95c0ae33
 </div>
