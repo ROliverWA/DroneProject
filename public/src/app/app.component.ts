@@ -2,7 +2,7 @@ import * as PlayerManager from './PlayerManager';
 import { SocketService } from './socket.service';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { fader } from './route-animations';
+// import { fader } from './route-animations';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { fader } from './route-animations';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    fader
+    // fader
   ],
 })
 export class AppComponent {
@@ -30,9 +30,9 @@ export class AppComponent {
     this.socketService.sendMsg('message', "ZZZzzZZ Sockets");
   }
 
-    prepareRoute(outlet: RouterOutlet) {
-      return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-    }
+    // prepareRoute(outlet: RouterOutlet) {
+    //   return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    // }
 
 
 

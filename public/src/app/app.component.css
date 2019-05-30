@@ -9,4 +9,7 @@ h1 {
   margin: 20px auto;
   box-sizing: border-box;
   background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
