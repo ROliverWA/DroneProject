@@ -17,7 +17,7 @@ img {
 
 .overlay {
   position: absolute;
-  /* pointer-events: none; */
+  pointer-events: none;
   width: 1280px;
 }
   .overlay img {
