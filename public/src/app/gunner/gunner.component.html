@@ -1,11 +1,14 @@
-
-<body>
-    <div class="content">
-        <div class="video">
-          <img src="assets/images/interface.png" alt="">
-          <canvas id="renderCanvas"></canvas>
+<div class="content">
+    <div class="video">
+        <div class="overlay">
+            <img src="assets/images/interface.png" alt="">
+            <div class="health_outer">
+                <div  class="health_inner" [@healthMeter]="healthChange"></div>
+            </div>
         </div>
-      </div>
-      <button [routerLink]="['']">Home</button>
-</body>
+        <canvas id="renderCanvas"></canvas>
+    </div>
+</div>
 
+<button (click)="damageTaken()">Lose health</button>
+<!-- <button [routerLink]="['']">Home</button> -->

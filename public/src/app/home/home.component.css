@@ -3,7 +3,8 @@ h2, h3  {
 }
 
 .content {
-  background-color: darkolivegreen;
+  background-color: blue;
+  text-align: center;
 }
 
 .selection {

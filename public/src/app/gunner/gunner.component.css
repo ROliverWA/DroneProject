@@ -2,16 +2,44 @@
 .video {
   width: 1280px;
   height: 720px;
-  margin-top: -18.5px;
+  /* margin-top: -18.5px; */
+  background-color: pink;
 }
 
 img {
   width: 100%;
 }
 
-.video img:first-child {
+/* .video img:first-child {
   position: absolute;
   width: 1280px;
+} */
+
+.overlay {
+  position: absolute;
+  pointer-events: none;
+  width: 1280px;
+}
+  .overlay img {
+    position: absolute;
+    width: 1280px;
+  }
+
+.health_outer {
+  opacity: 90%;
+  position: absolute;
+  border: 3px black solid;
+  left: 390px;
+  top: 625px;
+  height: 40px;
+  width: 500px;
+}
+
+.health_inner {
+  background-color: rgba(255, 0, 0, 0.85);
+  height: 40px;
+  overflow: 'hidden';
+  width: 500px;
 }
 
 html, body {

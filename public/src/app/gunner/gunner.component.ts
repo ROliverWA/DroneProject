@@ -1,16 +1,23 @@
-import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import * as BABYLON from 'babylonjs';
 import 'babylonjs-loaders';
+import { useAnimation } from '@angular/animations';
+import { healthMeter} from '../AnimationManager';
 
 @Component({
   selector: 'app-gunner',
   templateUrl: './gunner.component.html',
-  styleUrls: ['./gunner.component.css']
+  styleUrls: ['./gunner.component.css'],
+  animations: [
+    healthMeter
+  ]
 })
 export class GunnerComponent implements OnInit {
   isGameStarted: boolean = false;
 
+
+  health: number;
 
   constructor() { }
 
@@ -62,6 +69,18 @@ export class GunnerComponent implements OnInit {
     window.addEventListener('resize', () => {
       engine.resize();
     });
+    this.health = 10;
+  }
+
+  get healthChange() {
+    console.log(this.health);
+    return String(this.health);
+  }
+
+  damageTaken() {
+    if (this.health > 0) {
+      this.health -= 1;
+    }
   }
 
 }
