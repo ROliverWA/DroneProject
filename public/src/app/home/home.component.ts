@@ -1,3 +1,4 @@
+import { SocketService } from './../socket.service';
 import { Component, OnInit } from '@angular/core';
 import * as PlayerManager from "../PlayerManager";
 
@@ -14,7 +15,16 @@ export class HomeComponent implements OnInit {
   team1;
   team2;
 
-  constructor() { }
+  constructor(private _socketService: SocketService) { 
+    var socket = this._socketService.holdSocket();
+    var socket2 = this._socketService.socketToGo();
+    console.log(socket);
+    console.log(socket2);
+    socket2.
+    
+    
+
+  }
 
   ngOnInit() {
   }
