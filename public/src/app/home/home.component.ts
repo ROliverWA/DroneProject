@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     var socket2 = this._socketService.socketToGo();
     console.log(socket);
     console.log(socket2);
-    socket2.
+    
     
     
 
