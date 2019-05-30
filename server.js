@@ -48,17 +48,3 @@ io.on('connection', socket => {
         console.log('collect drones');
     });
     });   
-
-    
-        
-       
-
-    
-
-
-
-
-
-
-
-
