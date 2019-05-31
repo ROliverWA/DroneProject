@@ -68,13 +68,6 @@ export class Team {
         return this;
     }
 
-
-
-
-
-
-
-
 }
 
 
@@ -119,7 +112,7 @@ export function getTeams() {
 export function getTeamById(id) {
     for (let i = 0; i < teams.length;i++) {
         if (teams[i].id === id) {
-            return teams[i]
+            return teams[i];
         }
     }
 }
