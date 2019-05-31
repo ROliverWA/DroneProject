@@ -9,10 +9,10 @@ export class SocketService {
   private url = 'http://localhost:1337';
   private socket;
 
-  constructor() {    
+  constructor() {
     this.holdSocket();
    }
-   
+
 holdSocket() {
   this.socket = io(this.url);
   this.socket.on('connected', () => {
@@ -20,7 +20,7 @@ holdSocket() {
     return this.socket;
   });
 
-} 
+}
 
 
 

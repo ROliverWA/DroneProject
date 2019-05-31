@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
@@ -7,10 +5,10 @@ import * as BABYLON from 'babylonjs';
 import 'babylonjs-loaders';
 import { useAnimation } from '@angular/animations';
 import { healthMeter} from '../AnimationManager';
-import * as GameControllers from '../GameControllers';
 import * as PlayerManager from '../PlayerManager';
 import { Team, Player } from '../PlayerManager';
 import { SocketService } from '../socket.service';
+
 
 @Component({
   selector: 'app-gunner',
@@ -30,8 +28,9 @@ export class GunnerComponent implements OnInit {
   role: string;
   color: string;
   ui: boolean = false;
+  teamno: number = 0;
 
-  constructor(private _socket_service: SocketService,
+  constructor(private _socketService: SocketService,
     private _route: ActivatedRoute
   ) {}
 
@@ -44,7 +43,7 @@ export class GunnerComponent implements OnInit {
       } else {
         this.color = 'blue';
       }
-      console.log(this.color)
+      console.log(this.color);
       if (this.role === 'Gunner') {
         this.ui = true;
       } else {
@@ -134,13 +133,38 @@ export class GunnerComponent implements OnInit {
     });
   }
 
- sendMsg(name, message) {
-   this._socket_service.sendMsg(name, message);
- }
+  sendMsg(name, message) {
+    this._socketService.sendMsg(name, message);
+  }
 
- keyDown(e) {
-  return GameControllers.onKeyDown(e);
- }
+  keyDown(e) {
+    var teamno;
+    this._route.params.subscribe((params: Params) => {
+      teamno = params.team;
+      console.log('should be 1 or 2', teamno);
+    });
+
+    if (e.keyCode === 37) {
+    this._socketService.sendMsg('ccw' + teamno, 'zzzzzz');
+  } else if (e.keyCode == 39) { //right arrow
+    //right spin
+  } else if (e.keyCode == 38) { //up arrow
+    //vertical upward
+  } else if (e.keyCode == 40) { //down arrow
+    //vertical downward
+  } else if (e.keyCode == 65) { //a key
+    //strife left
+  } else if (e.keyCode == 68) { //d key
+    //strife right
+  } else if (e.keyCode == 87) { //w key
+    //move forward
+  } else if (e.keyCode == 83) { //s key
+    //move backward
+  } else if (e.keyCode == 76) { //l key
+    //emergency land
+  }
+  }
+
 
 
 }
