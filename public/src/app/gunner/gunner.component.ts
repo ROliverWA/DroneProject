@@ -138,6 +138,9 @@ export class GunnerComponent implements OnInit {
    this._socket_service.sendMsg(name, message);
  }
 
+ keyDown(e) {
+  return GameControllers.onKeyDown(e);
+ }
 
 
 }

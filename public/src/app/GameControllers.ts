@@ -1,4 +1,4 @@
-onKeyDown(e){
+export function onKeyDown(e){
     if (e.keyCode == 37) { //left arrow
       //left spin
     } else if (e.keyCode == 39) { //right arrow
