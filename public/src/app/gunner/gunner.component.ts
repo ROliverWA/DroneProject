@@ -43,38 +43,56 @@ export class GunnerComponent implements OnInit {
   }
 
   runGame() {
-    this._route.params.subscribe((params: Params) => {
-      console.log(params['role']);
-    });
     this.isGameStarted = true;
     // Grab canvas HTML tag
     const canvas: any = document.getElementById('renderCanvas');
     const delayCreateScene = () => {
+      var teamNum: number;
+      this._route.params.subscribe((params: Params) => {
+        teamNum = params.team;
+        console.log(params.team);
+      });
       // Create a scene.
       const scene = new BABYLON.Scene(engine);
       // const hdrTexture = new BABYLON.CubeTexture('./assets/backgrounds/sample.dds', scene);
       // scene.createDefaultSkybox(hdrTexture, true, 10000);
       // Create a camera
       // const camera = new BABYLON.ArcRotateCamera('Camera', 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
-      const camera = new BABYLON.DeviceOrientationCamera('DevOr_camera', new BABYLON.Vector3(100, 100, 100), scene);
+      const camera = new BABYLON.DeviceOrientationCamera('DevOr_camera', new BABYLON.Vector3(0, 0, 0), scene);
 
       // Target the camera to scene origin.
       // camera.setTarget(BABYLON.Vector3.Zero());
       // Attach the camera to the canvas.
       camera.attachControl(canvas, true);
       // Append glTF model to scene.
-      const model = BABYLON.SceneLoader.Append(
-        './assets/3dModels/halcon_milenario/',
-        'scene.gltf',
-        scene,
-        (modelObject) => {
-          this.isModelLoaded = true;
-          this.team2Object.model = modelObject;
-          console.log('team should have model now', this.team2Object);
-          // Create a default arc rotate camera and light.
-          scene.createDefaultCameraOrLight(true, false, true);
-        }
-      );
+      console.log('better be correct', teamNum);
+      if (teamNum == 2) {
+        BABYLON.SceneLoader.Append(
+          './assets/3dModels/halcon_milenario/',
+          'scene.gltf',
+          scene,
+          (modelObject) => {
+            this.isModelLoaded = true;
+            this.team2Object.model = modelObject;
+            console.log('team should have model now', this.team2Object);
+            // Create a default arc rotate camera and light.
+            scene.createDefaultCameraOrLight(true, true, true);
+          }
+        );
+      } else if (teamNum == 1) {
+        BABYLON.SceneLoader.Append(
+          './assets/3dModels/star_wars_tie_fighter/',
+          'scene.gltf',
+          scene,
+          (modelObject) => {
+            this.isModelLoaded = true;
+            this.team1Object.model = modelObject;
+            console.log('team should have model now', this.team1Object);
+            // Create a default arc rotate camera and light.
+            scene.createDefaultCameraOrLight(true, true, true);
+          }
+        );
+      }
       return scene;
     };
     const engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });

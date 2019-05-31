@@ -30,7 +30,7 @@ export class LobbyComponent implements OnInit {
 
   }
   startGame(role, team) {
-    this._router.navigate(['/gunner/'+this.role+'/'+this.team]);
+    this._router.navigate(['/gunner/' + this.role + '/' + this.team]);
   }
   // startGame() {
   //   this.isGameStarted = true;
