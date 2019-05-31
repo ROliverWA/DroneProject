@@ -147,20 +147,28 @@ export class GunnerComponent implements OnInit {
     if (e.keyCode === 37) {
     this._socketService.sendMsg('ccw' + teamno, 'zzzzzz');
   } else if (e.keyCode == 39) { //right arrow
+    this._socketService.sendMsg('cw' + teamno, 'ok');
     //right spin
   } else if (e.keyCode == 38) { //up arrow
+    this._socketService.sendMsg('up' + teamno, 'ok');
     //vertical upward
   } else if (e.keyCode == 40) { //down arrow
+    this._socketService.sendMsg('down' + teamno, 'ok');
     //vertical downward
   } else if (e.keyCode == 65) { //a key
+    this._socketService.sendMsg('left' + teamno, 'ok');
     //strife left
   } else if (e.keyCode == 68) { //d key
+    this._socketService.sendMsg('right' + teamno, 'ok');
     //strife right
   } else if (e.keyCode == 87) { //w key
+    this._socketService.sendMsg('forward' + teamno, 'ok');
     //move forward
   } else if (e.keyCode == 83) { //s key
+    this._socketService.sendMsg('back' + teamno, 'ok');
     //move backward
   } else if (e.keyCode == 76) { //l key
+    this._socketService.sendMsg('stop' + teamno, 'ok');
     //emergency land
   }
   }
