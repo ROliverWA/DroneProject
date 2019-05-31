@@ -4,14 +4,14 @@ const path = require('path');
 const http = require('http');
 const gameHost = http.Server(app);
 var arDrone = require('ar-drone');
+var selected_roles = 0;
 
 
 var droneOne = arDrone.createClient('192.168.1.2');
 droneOne.disableEmergency();
 var droneTwo = arDrone.createClient('192.168.1.3');
 droneTwo.disableEmergency();
-console.log(droneOne);
-console.log(droneTwo);
+
 
 
    
@@ -43,8 +43,9 @@ io.on('connection', socket => {
         console.log("Message ", message);
     });
 
-    socket.on('collectDrones', message => {
-        socket.emit('drones', [this.droneOne, this.droneTwo]);
-        console.log('collect drones');
+    socket.on('role_selected', message => {
+        selected_roles++;       
+        io.emit('roleselected', selected_roles);
+        console.log('selected_roles');
     });
     });   

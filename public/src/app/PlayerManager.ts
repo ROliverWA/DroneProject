@@ -103,6 +103,7 @@ export class Player {
         };
         players.push(player);
         console.log('player from PlayerManager ->', players);
+        return player;
     }
 
 }

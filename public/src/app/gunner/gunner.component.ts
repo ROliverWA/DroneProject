@@ -60,6 +60,7 @@ export class GunnerComponent implements OnInit {
     // Create loop to have game run continously
     engine.runRenderLoop( () => {
       if (scene) {
+        // console.log("render_loop");
         scene.render();
       }
     });

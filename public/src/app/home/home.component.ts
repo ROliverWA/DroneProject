@@ -1,3 +1,4 @@
+import { Player } from './../PlayerManager';
 import { SocketService } from './../socket.service';
 import { Component, OnInit } from '@angular/core';
 import * as PlayerManager from '../PlayerManager';
@@ -20,13 +21,15 @@ export class HomeComponent implements OnInit {
   p1: boolean = false;
   g2: boolean = false;
   p2: boolean = false;
+  player: Player;
+  current_players;
 
   constructor(private _socketService: SocketService, private _route: ActivatedRoute,
     private _router: Router) {
-    var socket = this._socketService.holdSocket();
-    var socket2 = this._socketService.socketToGo();
-    console.log(socket);
-    console.log(socket2);
+    // var socket = this._socketService.holdSocket();
+    // var socket2 = this._socketService.socketToGo();
+    // console.log(socket);
+    // console.log(socket2);
 
 
 
@@ -47,8 +50,11 @@ export class HomeComponent implements OnInit {
 
 
   logPlayer(roll, name, team, play) {
-    PlayerManager.logPlayer(roll, name, team);
-    console.log(play);
+    this.player = PlayerManager.logPlayer(roll, name, team);
+    let response = this._socketService.listen("roleselected");
+    this._socketService.sendMsg("role_selected", "");
+    
+    console.log("THIS PLAYER " + response);
     this.count ++;
     if (play === 'p1') {
       this.p1 = true;
