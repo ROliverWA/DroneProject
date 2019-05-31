@@ -31,12 +31,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-    this.renderModel();
-    // fetch('./assets/3dModels/halcon_milenario/scene.gltf')
-    //   .then(response => {
-    //     console.log('should be model obj ->', response);
-    //     console.log('idk what this does ->', response.json());
-    //   });
+
   }
 
 
@@ -76,9 +71,4 @@ export class HomeComponent implements OnInit {
     // this._router.navigate(['/lobby'])
   }
 
-  async renderModel() {
-    const response = await fetch('./assets/3dModels/halcon_milenario/scene.gltf');
-    const json = await response.json();
-    console.log('hope this works ->', json);
-  }
 }
