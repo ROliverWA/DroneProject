@@ -2,44 +2,19 @@
     <h2>Choose your Teams</h2>
     <div class="selection">
         <h3>Team 1</h3>
-        <button (click) = "logPlayer('Pilot', 'Rob', 1)">Pilot Team 1</button>
-        <button (click) = 'logPlayer("Gunner", "Milan", 1)'>Gunner Team 1</button>
+        <button *ngIf="!p1" (click) = "logPlayer('Pilot', 'Red', 1, 'p1')">Pilot Team 1</button>
+        <button *ngIf="!g1" (click) = 'logPlayer("Gunner", "Red", 1, "g1")'>Gunner Team 1</button>
     </div>
     <div class="selection">
         <h3>Team 2</h3>
-        <button (click) = 'logPlayer("Pilot", "Joe", 2)'>Pilot Team 2</button>
-        <button (click) = 'logPlayer("Gunner", "Denny", 2)'>Gunner Team 2</button>
-    </div>
-    <div  *ngIf = "game_full">
-        <button (click) = 'startGame()' >Start Game</button>
-        <div>
-          <table>
-            <tr>
-              <td>Team 1</td><td>Team 2</td>
-            </tr>
-            <tr>
-              <td>{{players['1']['0']['name']}} {{players['1']['0']['role']}}</td><td>{{players['2']['0']['name']}} {{players['2']['0']['role']}}</td>
-            </tr>
-            <tr>
-              <td>{{players['1']['1']['name']}} {{players['1']['1']['role']}}</td><td>{{players['2']['1']['name']}} {{players['1']['1']['role']}}</td>
-            </tr>
-          </table>
-        </div>
-        <div>
-        <table>
-            <tr>
-              <th>Team 1</th>
-              <td>{{team1}} Drone: {{team1['drone']}} Health: {{team1['health']}} Missiles: {{team1['missile']}} model: {{team1['model']}} team id: {{team1['team_id']}} </td>
-            </tr>
-            <tr>
-              <th>Team 2</th>
-                <td>{{team2}} Drone: {{team2['drone']}} Health: {{team2['health']}} Missiles: {{team2['missile']}} model: {{team2['model']}} team id: {{team2['team_id']}} </td>
-            </tr>
-          </table>
-        </div>
+        <button *ngIf="!p2" (click) = 'logPlayer("Pilot", "Blue", 2, "p2")'>Pilot Team 2</button>
+        <button *ngIf="!g2" (click) = 'logPlayer("Gunner", "Blue", 2, "g2")'>Gunner Team 2</button>
     </div>
 
+    <div *ngIf = "game_full">
+      <app-lobby></app-lobby>
+    </div>
 
 </div>
 
-<button [routerLink]="['/gunner']">Gunner</button>
+

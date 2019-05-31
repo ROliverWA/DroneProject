@@ -1,3 +1,4 @@
+import { SocketService } from './../socket.service';
 import { Component, OnInit } from '@angular/core';
 import * as PlayerManager from '../PlayerManager';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,12 +16,23 @@ export class HomeComponent implements OnInit {
   team1;
   team2;
   isGameStarted: boolean = false;
-  team1Model: any;
+  g1: boolean = false;
+  p1: boolean = false;
+  g2: boolean = false;
+  p2: boolean = false;
 
-  constructor(
-    private _route: ActivatedRoute,
-    private _router: Router
-  ) { }
+  constructor(private _socketService: SocketService, private _route: ActivatedRoute,
+    private _router: Router) {
+    var socket = this._socketService.holdSocket();
+    var socket2 = this._socketService.socketToGo();
+    console.log(socket);
+    console.log(socket2);
+
+
+
+
+  }
+
 
   ngOnInit() {
     this.renderModel();
@@ -30,32 +42,47 @@ export class HomeComponent implements OnInit {
     //     console.log('idk what this does ->', response.json());
     //   });
   }
-  logPlayer(roll, name, team) {
+
+
+
+
+  logPlayer(roll, name, team, play) {
     PlayerManager.logPlayer(roll, name, team);
+    console.log(play);
     this.count ++;
+    if (play === 'p1') {
+      this.p1 = true;
+      } else if (play === 'p2') {
+        this.p2 = true;
+      } else if (play === 'g1') {
+        this.g1 = true;
+      } else {
+        this.g2 = true;
+    }
     if (this.count === 4) {
       this.game_full = true;
-      }
-
+      this.startGame();
     }
+  }
 
-    startGame() {
-      this.isGameStarted = true;
-      console.log('start game clicked');
-      this.players = PlayerManager.getPlayers();
-      this.players = PlayerManager.splitTeams(this.players);
-      this.teams_ready = true;
-      console.log(this.players);
-      this.team1 = new PlayerManager.Team(this.players['1']);
-      this.team2 = new PlayerManager.Team(this.players['2']);
-      console.log('team 1 from home component ->', this.team1);
-      console.log('team 2 from home component ->', this.team2);
-      this._router.navigate(['/gunner']);
-    }
+  startGame() {
+    this.isGameStarted = true;
+    console.log('start game clicked');
+    this.players = PlayerManager.getPlayers();
+    this.players = PlayerManager.splitTeams(this.players);
+    this.teams_ready = true;
+    console.log(this.players);
+    this.team1 = new PlayerManager.Team(this.players['1']);
+    this.team2 = new PlayerManager.Team(this.players['2']);
+    console.log(this.team1);
+    console.log(this.team2);
+    this._router.navigate(['/gunner']);
+    // this._router.navigate(['/lobby'])
+  }
 
-    async renderModel() {
-      const response = await fetch('./assets/3dModels/halcon_milenario/scene.gltf');
-      const json = await response.json();
-      console.log('hope this works ->', json);
-    }
+  async renderModel() {
+    const response = await fetch('./assets/3dModels/halcon_milenario/scene.gltf');
+    const json = await response.json();
+    console.log('hope this works ->', json);
+  }
 }

@@ -10,15 +10,16 @@ export class SocketService {
   private socket;
 
   constructor() {    
-    this.holdSocket();
+    // this.holdSocket();
    }
    
 holdSocket() {
   this.socket = io(this.url);
   this.socket.on('connected', () => {
-    console.log('here now');
+    console.log(this.socket);
     return this.socket;
-  })
+  });
+
 } 
 
 createNamespace(name) {
@@ -28,4 +29,12 @@ createNamespace(name) {
 sendMsg(name="message", message) {
   this.socket.emit(name, message);
 }
+
+socketToGo(url = this.url) {
+  let sockItToMe = io(url);
+  this.socket.on('connected', () => {
+    console.log(sockItToMe);
+    return sockItToMe;
+  })
 }
+};
