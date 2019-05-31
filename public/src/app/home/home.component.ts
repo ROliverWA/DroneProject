@@ -23,14 +23,10 @@ export class HomeComponent implements OnInit {
 
   constructor(private _socketService: SocketService, private _route: ActivatedRoute,
     private _router: Router) {
-    var socket = this._socketService.holdSocket();
-    var socket2 = this._socketService.socketToGo();
+    let socket = this._socketService.holdSocket();
+    let socket2 = this._socketService.socketToGo();
     console.log(socket);
     console.log(socket2);
-
-
-
-
   }
 
 
