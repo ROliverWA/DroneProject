@@ -98,14 +98,17 @@ export const healthMeter = trigger('healthMeter', [
 //   ])
 // ]);
 
-// export let slide = trigger('slide', [
-//   transition(':enter', [
-//     style({
-//       transform: 'translateX(-10px)'
-//     }),
-//     animate('2000ms 1s ease-in')
-//   ])
-// ]);
+export let ghost = trigger('ghost', [
+  state('void',
+    style({
+      // width: '130px',
+      opacity: 0
+    })
+  ),
+  transition(':enter, :leave', [
+    animate('500ms ease-out')
+  ])
+]);
 
 // export const health = trigger('health', [
 //   transition(':enter', [

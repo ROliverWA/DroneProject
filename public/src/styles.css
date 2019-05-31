@@ -5,9 +5,17 @@
   /* border: red dashed .1px; */
 }
 
+body {
+  background-image: url('assets/images/background_brown.png');
+  background-size: cover;
+  background-color: rgb(53, 52, 52);
+}
+
 p, th, td, li, h1, h2, h3, h4, label{
+  color: white;
   margin-bottom: 5px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* font-family: Helvetica, Arial, sans-serif; */
 }
 
 p, li {
@@ -15,6 +23,7 @@ p, li {
 }
 
 h1, h2, h3, h4, label {
+  color: white;
   padding: 10px 20px;
 }
 
@@ -51,19 +60,22 @@ input[type=submit] {
     background-color: rgb(15, 135, 182);
   }
 button, a[class=button] {
-  background-color: rgba(249, 241, 241, 0.8);
-  color: #666666;
-  font-size: 15px;
-  border: solid 1px #666666;
+  background-color: rgba(77, 76, 76, 0.322);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  border: solid 2px #666666;
   border-radius: 10px;
   width: 150px;
+  height: 50px;
   outline: 0;
-  transition : all 0.1s ease 0s;
+  transition : all 0.2s ease 0s;
 }
   button:hover, a[class=button]:hover {
-    height: 39px;
+    /* height: 39px;
     width: 149px;
-    font-size: 15px;
+    font-size: 15px; */
+    background-color: rgba(77, 76, 76, 0.6);
     box-shadow: 1px 1px black;
     text-decoration-line: none;
   }

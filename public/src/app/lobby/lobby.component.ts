@@ -1,11 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as PlayerManager from '../PlayerManager';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ghost } from '../AnimationManager';
 
 @Component({
   selector: 'app-lobby',
   templateUrl: './lobby.component.html',
-  styleUrls: ['./lobby.component.css']
+  styleUrls: ['./lobby.component.css'],
+  animations: [
+    ghost
+  ]
 })
 export class LobbyComponent implements OnInit {
 // @Input() players: any;
@@ -18,8 +22,8 @@ export class LobbyComponent implements OnInit {
   @Input() p1: boolean;
   @Input() g2: boolean;
   @Input() p2: boolean;
-  @Input() role;
-  @Input() team;
+  @Input() role: string;
+  @Input() team: number;
 
   constructor(
     private _route: ActivatedRoute,

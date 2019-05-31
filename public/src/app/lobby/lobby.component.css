@@ -1,0 +1,16 @@
+p {
+  color: rgb(243, 241, 241);
+  margin-bottom: 10px;
+}
+
+.content {
+  height: 275px;
+}
+
+.red{
+  background-color: rgba(255, 0, 0, 0.356);
+}
+
+.blue{
+  background-color: rgba(0, 0, 255, 0.35);
+}
