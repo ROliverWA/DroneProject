@@ -10,6 +10,7 @@ module.exports = (io, drone1, drone2) => {
     });
 
     socket.on("start1", message => {
+     drone1.disableEmergency();
       drone1.takeoff();
       io.emit("roleselected", selected_roles);
       console.log("selected_roleszzzzz");
@@ -24,7 +25,7 @@ module.exports = (io, drone1, drone2) => {
     socket.on("forward1", message => {
       drone1
         .after(100, function() {
-          this.front(".2");
+          this.front(".3");
         })
         .after(1700, function() {
           this.stop();
@@ -36,7 +37,7 @@ module.exports = (io, drone1, drone2) => {
     socket.on("back1", message => {
       drone1
         .after(100, function() {
-          this.back(".2");
+          this.back(".3");
         })
         .after(1700, function() {
           this.stop();
@@ -47,7 +48,7 @@ module.exports = (io, drone1, drone2) => {
     socket.on("left1", message => {
       drone1
         .after(100, function() {
-          this.left(".2");
+          this.left(".3");
         })
         .after(1700, function() {
           this.stop();
@@ -59,7 +60,7 @@ module.exports = (io, drone1, drone2) => {
     socket.on("right1", message => {
       drone1
         .after(100, function() {
-          this.right(".2");
+          this.right(".3");
         })
         .after(1700, function() {
           this.stop();
@@ -71,7 +72,7 @@ module.exports = (io, drone1, drone2) => {
     socket.on("up1", message => {
       drone1
         .after(100, function() {
-          this.up(".2");
+          this.up(".3");
         })
         .after(1700, function() {
           this.stop();
@@ -83,7 +84,7 @@ module.exports = (io, drone1, drone2) => {
     socket.on("down1", message => {
       drone1
         .after(100, function() {
-          this.down(".2");
+          this.down(".3");
         })
         .after(1700, function() {
           this.stop();
@@ -95,7 +96,7 @@ module.exports = (io, drone1, drone2) => {
     socket.on("cw1", message => {
       drone1
         .after(100, function() {
-          this.clockwise(".2");
+          this.clockwise(".3");
         })
         .after(1700, function() {
           this.stop();
@@ -107,7 +108,7 @@ module.exports = (io, drone1, drone2) => {
     socket.on("ccw1", message => {
       drone1
         .after(100, function() {
-          this.counterClockwise(".2");
+          this.counterClockwise(".3");
         })
         .after(1700, function() {
           this.stop();
