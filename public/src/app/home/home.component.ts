@@ -1,3 +1,4 @@
+import { SocketService } from './../socket.service';
 import { Component, OnInit } from '@angular/core';
 import * as PlayerManager from '../PlayerManager';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,10 +21,19 @@ export class HomeComponent implements OnInit {
   g2: boolean = false;
   p2: boolean = false;
 
-  constructor(
-    private _route: ActivatedRoute,
-    private _router: Router
-  ) { }
+  constructor(private _socketService: SocketService, private _route: ActivatedRoute,
+    private _router: Router) { 
+    var socket = this._socketService.holdSocket();
+    var socket2 = this._socketService.socketToGo();
+    console.log(socket);
+    console.log(socket2);
+        
+    
+    
+
+  }
+
+ 
 
   ngOnInit() {
   }
