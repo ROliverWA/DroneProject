@@ -183,11 +183,11 @@ module.exports = (io, drone1, drone2) => {
         .after(100, function() {
           this.up(".2");
         })
-        .after(1700, function() {
+        .after(2000, function() {
           this.stop();
         });
       io.emit("roleselected", selected_roles);
-      console.log("selected_roleszzzzz");
+      console.log("up2");
     });
 
     socket.on("down2", message => {

@@ -32,6 +32,14 @@
   <option value="1" (change) = 'teamno'>1</option>
   <option value="2" (change) = 'teamno'>2</option>
 </select> -->
+<button (click)="sendMesg('up2', 'asdf')">up</button>
+<button (click)="sendMesg('down2', 'asdf')">down</button>
+<button (click)="sendMesg('left2', 'asdf')">left</button>
+<button (click)="sendMesg('right2', 'asdf')">right</button>
+<button (click)="sendMesg('forward2', 'asdf')">forward</button>
+<button (click)="sendMesg('back2', 'asdf')">back</button>
+<button (click)="sendMesg('cw2', 'asdf')">clock wise</button>
+<button (click)="sendMesg('ccw2', 'asdf')">counter clock wise</button>
 <input type="textbox" (keydown)="keyDown($event)">
 <button (click)="sendMsg('start1', 'fff')">Start</button>
 <button (click)="sendMsg('stop1', 'fff')">Stop</button>
