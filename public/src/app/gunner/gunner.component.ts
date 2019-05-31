@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { ActivatedRoute, Params } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
+=======
+import { ActivatedRoute, Params } from '@angular/router';
+import { DOCUMENT } from '@angular/platform-browser';
+>>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
 import * as BABYLON from 'babylonjs';
 import 'babylonjs-loaders';
 import { useAnimation } from '@angular/animations';
 import { healthMeter} from '../AnimationManager';
+import * as PlayerManager from '../PlayerManager';
+import { Team, Player } from '../PlayerManager';
 
 @Component({
   selector: 'app-gunner',
@@ -23,9 +30,16 @@ export class GunnerComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+<<<<<<< HEAD
     this._route.params.subscribe((params: Params) => {
       console.log(params['role']);
     })
+=======
+  this._route.params.subscribe((params: Params) => {
+    console.log(params['role']);
+  })
+  console.log('players from gunner component ->', PlayerManager.getPlayers());
+>>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
     let playerModel: any;
     this.isGameStarted = true;
     // Grab canvas HTML tag
@@ -34,16 +48,15 @@ export class GunnerComponent implements OnInit {
     const delayCreateScene = () => {
       // Create a scene.
       const scene = new BABYLON.Scene(engine);
+      // const hdrTexture = new BABYLON.CubeTexture('./assets/backgrounds/sample.dds', scene);
+      // scene.createDefaultSkybox(hdrTexture, true, 10000);
       // Create a camera
-      const camera = new BABYLON.FreeCamera(
-        'camera',
-        new BABYLON.Vector3(0, 5, -10),
-        scene
-      );
+      const camera = new BABYLON.ArcRotateCamera('camera1', 0,  Math.PI / 2, 10, BABYLON.Vector3.Zero(), scene);
       // Target the camera to scene origin.
       camera.setTarget(BABYLON.Vector3.Zero());
       // Attach the camera to the canvas.
       camera.attachControl(canvas, false);
+
       // Append glTF model to scene.
       BABYLON.SceneLoader.Append(
         './assets/3dModels/halcon_milenario/',
@@ -55,8 +68,6 @@ export class GunnerComponent implements OnInit {
           console.log('model object ->', playerModel);
           // Create a default arc rotate camera and light.
           scene.createDefaultCameraOrLight(true, true, true);
-          // The default camera looks at the back of the asset.
-          // Rotate the camera by 180 degrees to the front of the asset.
         }
       );
       return scene;
@@ -77,7 +88,10 @@ export class GunnerComponent implements OnInit {
   }
 
   get healthChange() {
+<<<<<<< HEAD
     // console.log(this.health);
+=======
+>>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
     return String(this.health);
   }
 

@@ -21,12 +21,12 @@ gameHost.listen(1337, () => console.log("Listening on port 1337"));
 const io = require('socket.io')(gameHost); 
 
 
-droneOne.takeoff();
+// droneOne.takeoff();
 
-droneOne.after(5000, () => {
-    droneOne.stop();
-    droneOne.land();
-});
+// droneOne.after(5000, () => {
+//     droneOne.stop();
+//     droneOne.land();
+// });
 
 // droneTwo.takeoff();
 
