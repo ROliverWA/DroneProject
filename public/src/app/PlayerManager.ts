@@ -19,10 +19,10 @@ export class Team {
     alive: boolean;
     power: number = 10;
 
-    constructor(members, model?, drone?) {        
+    constructor(members, model?, drone?) {
         const self = this;
         self.health = this.health;
-        self.missile = this.missile;        
+        self.missile = this.missile;
         self.members = members;
         this.alive = true;
         self.team_id = team_count + 1;
@@ -35,7 +35,7 @@ export class Team {
             model: self.model,
             drone: self.drone,
             id: self.team_id
-        }
+        };
         teams.push(team);
         console.log(teams);
     }
@@ -45,7 +45,7 @@ export class Team {
         if (this.health <= 0) {
             this.alive = false;
             return this;
-        }    
+        }
         return;
     }
 
@@ -73,6 +73,8 @@ export class Team {
 
 
 
+
+
 }
 
 
@@ -91,15 +93,14 @@ export class Player {
         self.name = name;
         self.id = player_count + 1;
         player_count ++;
-        ;
-         let player = {
+        let player = {
             name: self.name,
             role: self.role,
             team: self.team,
             id: self.id,
-            socket: "",
-            model: ""
-        }
+            socket: '',
+            model: ''
+        };
         players.push(player);
         console.log(players);
     }
@@ -122,7 +123,7 @@ export function splitTeams(players) {
         }
         else {
             team2.push(players[i])
-        }        
+        }
     }
     let teams = {
         1: team1,
@@ -132,6 +133,6 @@ export function splitTeams(players) {
 }
 
 export function logPlayer(roll, name, team, flag?) {
-    return new Player(roll,name, team);
+    return new Player(roll, name, team);
 }
 
