@@ -1,7 +1,8 @@
 import * as PlayerManager from './PlayerManager';
-import { SocketService } from './socket.service';
+import { SocketService, sendMsg } from './socket.service';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
 // import { fader } from './route-animations';
 
 
@@ -21,19 +22,18 @@ export class AppComponent {
   // teams_ready: boolean = false;
   // team1;
   // team2;
+  drones;
 
   constructor(private socketService: SocketService) {
   }
 
-  sendMsg() {
-    console.log('SendMsg Clicked');
-    this.socketService.sendMsg('message', "ZZZzzZZ Sockets");
-  }
+  
 
     // prepareRoute(outlet: RouterOutlet) {
     //   return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
     // }
 
-
+ 
+  
 
 }

@@ -10,7 +10,7 @@ export class SocketService {
   private socket;
 
   constructor() {    
-    // this.holdSocket();
+    this.holdSocket();
    }
    
 holdSocket() {
@@ -27,8 +27,10 @@ createNamespace(name) {
 }
 
 sendMsg(name="message", message) {
-  this.socket.emit(name, message);
-}
+  this.socket.emit(name, message, response => {
+    return response;
+  });
+};
 
 socketToGo(url = this.url) {
   let sockItToMe = io(url);
@@ -37,4 +39,17 @@ socketToGo(url = this.url) {
     return sockItToMe;
   })
 }
+
+listen(what) {
+  this.socket.on(what, data =>
+    {console.log("this works", data);
+    return data;})
+}
+
+};
+
+export function sendMsg(name="message", message) {
+  this.socket.emit(name, message, response => {
+    return response;
+  });
 };

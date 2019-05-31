@@ -1,14 +1,14 @@
 <div class="content">
-    <h2>Choose your Teams</h2>
+    <h1>Choose your Role</h1>
     <div class="selection">
-        <h3>Team 1</h3>
-        <button *ngIf="!p1" (click) = "logPlayer('Pilot', 'Red', 1, 'p1')">Pilot Team 1</button>
-        <button *ngIf="!g1" (click) = 'logPlayer("Gunner", "Red", 1, "g1")'>Gunner Team 1</button>
+        <h3>Red Team</h3>
+        <button @ghost *ngIf="!p1" (click) = "logPlayer('Pilot', 'Red', 1, 'p1')" class="red" >Red Pilot</button>
+        <button @ghost *ngIf="!g1" (click) = 'logPlayer("Gunner", "Red", 1, "g1")' class="red" >Red Gunner</button>
     </div>
     <div class="selection">
-        <h3>Team 2</h3>
-        <button *ngIf="!p2" (click) = 'logPlayer("Pilot", "Blue", 2, "p2")'>Pilot Team 2</button>
-        <button *ngIf="!g2" (click) = 'logPlayer("Gunner", "Blue", 2, "g2")'>Gunner Team 2</button>
+        <h3>Blue Team</h3>
+        <button @ghost *ngIf="!p2" (click) = 'logPlayer("Pilot", "Blue", 2, "p2")' class="blue" >Blue Pilot</button>
+        <button @ghost *ngIf="!g2" (click) = 'logPlayer("Gunner", "Blue", 2, "g2")' class="blue" >Blue Gunner</button>
     </div>
 
     <!-- <div *ngIf = "game_full"> -->
@@ -19,7 +19,8 @@
         [p2]='p2'
         [game_full]='game_full'
         [role]='role'
-        [team]='team'>
+        [team]='team'
+        >
       </app-lobby>
     <!-- </div> -->
 

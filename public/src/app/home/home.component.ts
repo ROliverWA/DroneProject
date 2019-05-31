@@ -1,12 +1,17 @@
+import { Player } from './../PlayerManager';
 import { SocketService } from './../socket.service';
 import { Component, OnInit } from '@angular/core';
 import * as PlayerManager from '../PlayerManager';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ghost } from '../AnimationManager';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [
+    ghost
+  ]
 })
 export class HomeComponent implements OnInit {
   game_full: boolean = false;
@@ -20,16 +25,21 @@ export class HomeComponent implements OnInit {
   p1: boolean = false;
   g2: boolean = false;
   p2: boolean = false;
+  player: Player;
+  current_players;
   role: string;
   team: number;
 
-
   constructor(private _socketService: SocketService, private _route: ActivatedRoute,
     private _router: Router) {
-    let socket = this._socketService.holdSocket();
-    let socket2 = this._socketService.socketToGo();
-    console.log(socket);
-    console.log(socket2);
+    // var socket = this._socketService.holdSocket();
+    // var socket2 = this._socketService.socketToGo();
+    // console.log(socket);
+    // console.log(socket2);
+
+
+
+
   }
 
 
@@ -41,9 +51,12 @@ export class HomeComponent implements OnInit {
 
 
   logPlayer(roll, name, team, play) {
-    PlayerManager.logPlayer(roll, name, team);
+    this.player = PlayerManager.logPlayer(roll, name, team);
+    let response = this._socketService.listen("roleselected");
+    this._socketService.sendMsg("role_selected", "");
     this.role = roll;
     this.team = team;
+    console.log("THIS PLAYER " + response);
     this.count ++;
     if (play === 'p1') {
       this.p1 = true;

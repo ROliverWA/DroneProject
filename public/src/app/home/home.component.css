@@ -3,13 +3,29 @@ h2, h3  {
 }
 
 .content {
-  background-color: blue;
   text-align: center;
 }
 
 .selection {
   width: 200px;
-  height: 300px;
+  height: 250px;
   display: inline-block;
   vertical-align: top;
+}
+
+.red {
+  transition : all 0.2s ease 0.05s;
+}
+
+.red:hover {
+  background-color: rgba(255, 0, 0, 0.356);
+}
+
+
+.blue {
+  transition : all 0.3s ease 0.1s;
+}
+
+.blue:hover {
+  background-color: rgba(0, 0, 255, 0.35);
 }

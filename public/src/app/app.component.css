@@ -2,14 +2,20 @@ h1 {
   text-align: center;
 }
 
+img {
+  width: 700px;
+  display: block;
+  margin: auto;
+}
+
 .wrapper {
   width: 1280px;
   height: 720px;
-  position: relative;
   margin: 20px auto;
   box-sizing: border-box;
-  background-color: grey;
+  background-color: rgba(59, 58, 58, 0.438);
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
 }

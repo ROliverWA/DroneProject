@@ -22,12 +22,31 @@ export class GunnerComponent implements OnInit {
   isModelLoaded: boolean = false;
   team1Object: any = PlayerManager.getTeamById(1);
   team2Object: any = PlayerManager.getTeamById(2);
+  team: number;
+  role: string;
+  color: string;
+  ui: boolean = false;
 
   constructor(
     private _route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this._route.params.subscribe((params: Params) => {
+      this.role = params['role'];
+      this.team = parseInt(params['team']);
+      if (this.team === 1 ) {
+        this.color = 'red';
+      } else {
+        this.color = 'blue';
+      }
+      console.log(this.color)
+      if (this.role === 'Gunner') {
+        this.ui = true;
+      } else {
+        this.ui = false;
+      }
+    });
     this.runGame();
     this.health = 10;
   }
@@ -43,7 +62,6 @@ export class GunnerComponent implements OnInit {
   }
 
   runGame() {
-
     this.isGameStarted = true;
     // Grab canvas HTML tag
     const canvas: any = document.getElementById('renderCanvas');
@@ -103,6 +121,7 @@ export class GunnerComponent implements OnInit {
     // Create loop to have game run continously
     engine.runRenderLoop( () => {
       if (scene) {
+        // console.log("render_loop");
         scene.render();
       }
     });
