@@ -5,6 +5,7 @@ import * as BABYLON from 'babylonjs';
 import 'babylonjs-loaders';
 import { useAnimation } from '@angular/animations';
 import { healthMeter} from '../AnimationManager';
+import * as GameControllers from '../GameControllers';
 import * as PlayerManager from '../PlayerManager';
 import { Team, Player } from '../PlayerManager';
 
@@ -79,7 +80,7 @@ export class GunnerComponent implements OnInit {
       // Attach the camera to the canvas.
       camera.attachControl(canvas, true);
       // Append glTF model to scene.
-      const model = BABYLON.SceneLoader.Append(
+      BABYLON.SceneLoader.Append(
         './assets/3dModels/halcon_milenario/',
         'scene.gltf',
         scene,
@@ -88,7 +89,7 @@ export class GunnerComponent implements OnInit {
           this.team2Object.model = modelObject;
           console.log('team should have model now', this.team2Object);
           // Create a default arc rotate camera and light.
-          scene.createDefaultCameraOrLight(true, false, true);
+          scene.createDefaultCameraOrLight(true, true, true);
         }
       );
       return scene;
