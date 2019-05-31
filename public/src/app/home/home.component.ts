@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   p1: boolean = false;
   g2: boolean = false;
   p2: boolean = false;
-<<<<<<< HEAD
   player: Player;
   current_players;
 
@@ -35,18 +34,6 @@ export class HomeComponent implements OnInit {
 
 
 
-=======
-  role: string;
-  team: number;
-
-
-  constructor(private _socketService: SocketService, private _route: ActivatedRoute,
-    private _router: Router) {
-    let socket = this._socketService.holdSocket();
-    let socket2 = this._socketService.socketToGo();
-    console.log(socket);
-    console.log(socket2);
->>>>>>> 919cdf37d9b3295eca87b194862d63122f3bb59b
   }
 
 
@@ -58,17 +45,11 @@ export class HomeComponent implements OnInit {
 
 
   logPlayer(roll, name, team, play) {
-<<<<<<< HEAD
     this.player = PlayerManager.logPlayer(roll, name, team);
     let response = this._socketService.listen("roleselected");
     this._socketService.sendMsg("role_selected", "");
     
     console.log("THIS PLAYER " + response);
-=======
-    PlayerManager.logPlayer(roll, name, team);
-    this.role = roll;
-    this.team = team;
->>>>>>> 919cdf37d9b3295eca87b194862d63122f3bb59b
     this.count ++;
     if (play === 'p1') {
       this.p1 = true;
