@@ -1,23 +1,23 @@
 import { SocketService } from './socket.service';
 
 
-var player_count = 0;
-var team_count = 0;
+let player_count = 0;
+let team_count = 0;
 
 
 
-var players: any = [];
-var teams: any = [];
+const players: any = [];
+const teams: any = [];
 
 export class Team {
     members: Object[];
-    health: number = 100;
+    health: number = 10;
     missile: number = 2;
     model: any = {};
     drone: any = {};
     team_id: number = 0;
     alive: boolean;
-    power: number = 10;
+    power: number = 1;
 
     constructor(members, model?, drone?) {
         const self = this;
@@ -28,7 +28,7 @@ export class Team {
         self.team_id = team_count + 1;
         team_count++;
 
-        let team = {
+        const team = {
             members: self.members,
             health: self.health,
             missile: self.missile,
@@ -37,7 +37,7 @@ export class Team {
             id: self.team_id
         };
         teams.push(team);
-        console.log(teams);
+        console.log('team from PlayerManager ->', teams);
     }
 
     takeHit(damage = this.power) {
@@ -50,7 +50,7 @@ export class Team {
     }
 
     shootMissile(target: Team) {
-        target.health -= 30;
+        target.health -= 3;
         this.missile -= 1;
         return this;
     }
@@ -62,7 +62,7 @@ export class Team {
 
 
     resetTeam() {
-        this.health = 100;
+        this.health = 10;
         this.missile = 2;
         this.alive = true;
         return this;
@@ -93,7 +93,7 @@ export class Player {
         self.name = name;
         self.id = player_count + 1;
         player_count ++;
-        let player = {
+        const player = {
             name: self.name,
             role: self.role,
             team: self.team,
@@ -102,7 +102,7 @@ export class Player {
             model: ''
         };
         players.push(player);
-        console.log(players);
+        console.log('player from PlayerManager ->', players);
     }
 
 }
@@ -129,14 +129,13 @@ export function splitTeams(players) {
     if (players.length < 4) {
         return players;
     }
-    let team1 = [];
-    let team2 = [];
+    const team1 = [];
+    const team2 = [];
     for (let i =0; i<players.length; i++){
         if (players[i]['team']===1) {
-            team1.push(players[i])
-        }
-        else {
-            team2.push(players[i])
+            team1.push(players[i]);
+        } else {
+            team2.push(players[i]);
         }
     }
     let teams = {

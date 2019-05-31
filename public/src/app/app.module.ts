@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GunnerComponent } from './gunner/gunner.component';
 import { HomeComponent } from './home/home.component';
+import { LobbyComponent } from './lobby/lobby.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GunnerComponent,
-    HomeComponent
+    HomeComponent,
+    LobbyComponent
   ],
   imports: [
     BrowserModule,
