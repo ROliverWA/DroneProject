@@ -11,13 +11,13 @@ var teams: any = [];
 
 export class Team {
     members: Object[];
-    health: number = 100;
+    health: number = 10;
     missile: number = 2;
     model: any = {};
     drone: any = {};
     team_id: number = 0;
     alive: boolean;
-    power: number = 10;
+    power: number = 1;
 
     constructor(members, model?, drone?) {
         const self = this;
@@ -50,7 +50,7 @@ export class Team {
     }
 
     shootMissile(target: Team) {
-        target.health -= 30;
+        target.health -= 3;
         this.missile -= 1;
         return this;
     }
@@ -62,7 +62,7 @@ export class Team {
 
 
     resetTeam() {
-        this.health = 100;
+        this.health = 10;
         this.missile = 2;
         this.alive = true;
         return this;
