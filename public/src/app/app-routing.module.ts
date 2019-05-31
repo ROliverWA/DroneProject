@@ -6,7 +6,8 @@ import { LobbyComponent } from './lobby/lobby.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'gunner', component: GunnerComponent},
+  // {path: 'gunner/', component: GunnerComponent},
+  {path: 'gunner/:role/:team', component: GunnerComponent},
   {path: 'lobby', component: LobbyComponent},
   {path: '**', component: HomeComponent},
 ];

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { DOCUMENT } from '@angular/platform-browser';
 import * as BABYLON from 'babylonjs';
 import 'babylonjs-loaders';
 import { useAnimation } from '@angular/animations';
@@ -21,10 +23,11 @@ export class GunnerComponent implements OnInit {
   team1Object: any = PlayerManager.getTeamById(1);
   team2Object: any = PlayerManager.getTeamById(2);
 
-  constructor() { }
+  constructor(
+    private _route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    // console.log()
     this.runGame();
     this.health = 10;
   }
@@ -40,6 +43,9 @@ export class GunnerComponent implements OnInit {
   }
 
   runGame() {
+    this._route.params.subscribe((params: Params) => {
+      console.log(params['role']);
+    });
     this.isGameStarted = true;
     // Grab canvas HTML tag
     const canvas: any = document.getElementById('renderCanvas');
@@ -51,8 +57,6 @@ export class GunnerComponent implements OnInit {
       // Create a camera
       // const camera = new BABYLON.ArcRotateCamera('Camera', 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
       const camera = new BABYLON.DeviceOrientationCamera('DevOr_camera', new BABYLON.Vector3(100, 100, 100), scene);
-
-
 
       // Target the camera to scene origin.
       // camera.setTarget(BABYLON.Vector3.Zero());
