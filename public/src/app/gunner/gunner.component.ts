@@ -7,6 +7,7 @@ import * as BABYLON from 'babylonjs';
 import 'babylonjs-loaders';
 import { useAnimation } from '@angular/animations';
 import { healthMeter} from '../AnimationManager';
+import * as GameControllers from '../GameControllers';
 import * as PlayerManager from '../PlayerManager';
 import { Team, Player } from '../PlayerManager';
 import { SocketService } from '../socket.service';
@@ -137,6 +138,9 @@ export class GunnerComponent implements OnInit {
    this._socket_service.sendMsg(name, message);
  }
 
+ keyDown(e) {
+  return GameControllers.onKeyDown(e);
+ }
 
 
 }
