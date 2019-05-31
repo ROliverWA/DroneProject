@@ -11,9 +11,17 @@
         <button *ngIf="!g2" (click) = 'logPlayer("Gunner", "Blue", 2, "g2")'>Gunner Team 2</button>
     </div>
 
-    <div *ngIf = "game_full">
-      <app-lobby></app-lobby>
-    </div>
+    <!-- <div *ngIf = "game_full"> -->
+      <app-lobby
+        [g1]='g1'
+        [g2]='g2'
+        [p1]='p1'
+        [p2]='p2'
+        [game_full]='game_full'
+        [role]='role'
+        [team]='team'>
+      </app-lobby>
+    <!-- </div> -->
 
 </div>
 

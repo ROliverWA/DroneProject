@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
 import * as BABYLON from 'babylonjs';
 import 'babylonjs-loaders';
@@ -15,13 +16,16 @@ import { healthMeter} from '../AnimationManager';
 })
 export class GunnerComponent implements OnInit {
   isGameStarted: boolean = false;
-
-
   health: number;
 
-  constructor() { }
+  constructor(
+    private _route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this._route.params.subscribe((params: Params) => {
+      console.log(params['role']);
+    })
     let playerModel: any;
     this.isGameStarted = true;
     // Grab canvas HTML tag
@@ -73,7 +77,7 @@ export class GunnerComponent implements OnInit {
   }
 
   get healthChange() {
-    console.log(this.health);
+    // console.log(this.health);
     return String(this.health);
   }
 

@@ -20,20 +20,19 @@ export class HomeComponent implements OnInit {
   p1: boolean = false;
   g2: boolean = false;
   p2: boolean = false;
+  role: string;
+  team: number;
+
 
   constructor(private _socketService: SocketService, private _route: ActivatedRoute,
-    private _router: Router) { 
+    private _router: Router) {
     var socket = this._socketService.holdSocket();
     var socket2 = this._socketService.socketToGo();
     console.log(socket);
     console.log(socket2);
-        
-    
-    
-
   }
 
- 
+
 
   ngOnInit() {
   }
@@ -43,7 +42,8 @@ export class HomeComponent implements OnInit {
 
   logPlayer(roll, name, team, play) {
     PlayerManager.logPlayer(roll, name, team);
-    console.log(play);
+    this.role = roll;
+    this.team = team;
     this.count ++;
     if (play === 'p1') {
       this.p1 = true;
@@ -56,12 +56,11 @@ export class HomeComponent implements OnInit {
     }
     if (this.count === 4) {
       this.game_full = true;
-      this.startGame();
+      this.createGame();
     }
-
     // this._router.navigate(['/lobby'])
   }
-  startGame() {
+  createGame() {
     this.isGameStarted = true;
     console.log('start game clicked');
     this.players = PlayerManager.getPlayers();
@@ -72,6 +71,5 @@ export class HomeComponent implements OnInit {
     this.team2 = new PlayerManager.Team(this.players['2']);
     console.log(this.team1);
     console.log(this.team2);
-    this._router.navigate(['/gunner']);
   }
 }

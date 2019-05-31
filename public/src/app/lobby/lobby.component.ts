@@ -8,11 +8,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./lobby.component.css']
 })
 export class LobbyComponent implements OnInit {
-@Input() players: any;
-@Input() team1;
-@Input() team2;
-@Input() teams_ready: boolean;
-@Input() isGameStarted: boolean;
+// @Input() players: any;
+// @Input() team1;
+// @Input() team2;
+// @Input() teams_ready: boolean;
+// @Input() isGameStarted: boolean;
+  @Input() game_full: boolean;
+  @Input() g1: boolean;
+  @Input() p1: boolean;
+  @Input() g2: boolean;
+  @Input() p2: boolean;
+  @Input() role;
+  @Input() team;
 
   constructor(
     private _route: ActivatedRoute,
@@ -22,7 +29,9 @@ export class LobbyComponent implements OnInit {
   ngOnInit() {
 
   }
-
+  startGame(role, team) {
+    this._router.navigate(['/gunner/'+this.role+'/'+this.team]);
+  }
   // startGame() {
   //   this.isGameStarted = true;
   //   console.log('start game clicked');
