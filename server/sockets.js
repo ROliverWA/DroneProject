@@ -24,6 +24,17 @@ module.exports = (io, drone1, drone2) => {
         io.emit('roleselected', selected_roles);
         console.log('selected_roleszzzzz');
     });
+    socket.on('left1', message => {
+        drone1.left(".2");       
+        io.emit('roleselected', selected_roles);
+        console.log('selected_roleszzzzz');
+    });
+
+    socket.on('right1', message => {
+        drone1.right(".2");     
+        io.emit('roleselected', selected_roles);
+        console.log('selected_roleszzzzz');
+    });
     socket.on('start2', message => {
         drone2.takeoff();       
         io.emit('roleselected', selected_roles);
