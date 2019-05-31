@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { ActivatedRoute, Params } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
-=======
-import { ActivatedRoute, Params } from '@angular/router';
-import { DOCUMENT } from '@angular/platform-browser';
->>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
 import * as BABYLON from 'babylonjs';
 import 'babylonjs-loaders';
 import { useAnimation } from '@angular/animations';
@@ -30,16 +25,10 @@ export class GunnerComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-<<<<<<< HEAD
     this._route.params.subscribe((params: Params) => {
       console.log(params['role']);
     })
-=======
-  this._route.params.subscribe((params: Params) => {
-    console.log(params['role']);
-  })
-  console.log('players from gunner component ->', PlayerManager.getPlayers());
->>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
+    console.log('players from gunner component ->', PlayerManager.getPlayers());
     let playerModel: any;
     this.isGameStarted = true;
     // Grab canvas HTML tag
@@ -88,10 +77,6 @@ export class GunnerComponent implements OnInit {
   }
 
   get healthChange() {
-<<<<<<< HEAD
-    // console.log(this.health);
-=======
->>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
     return String(this.health);
   }
 

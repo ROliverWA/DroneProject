@@ -26,21 +26,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private _socketService: SocketService, private _route: ActivatedRoute,
     private _router: Router) {
-<<<<<<< HEAD
-    var socket = this._socketService.holdSocket();
-    var socket2 = this._socketService.socketToGo();
-=======
     let socket = this._socketService.holdSocket();
     let socket2 = this._socketService.socketToGo();
->>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
     console.log(socket);
     console.log(socket2);
   }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
 
   ngOnInit() {
     this.renderModel();
@@ -72,15 +63,9 @@ export class HomeComponent implements OnInit {
       this.game_full = true;
       this.createGame();
     }
-<<<<<<< HEAD
-    // this._router.navigate(['/lobby'])
-  }
-
-=======
   }
 
   createGame() {
->>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
     this.isGameStarted = true;
     console.log('start game clicked');
     this.players = PlayerManager.getPlayers();
@@ -91,14 +76,11 @@ export class HomeComponent implements OnInit {
     this.team2 = new PlayerManager.Team(this.players['2']);
     console.log(this.team1);
     console.log(this.team2);
-<<<<<<< HEAD
-=======
   }
 
   async renderModel() {
     const response = await fetch('./assets/3dModels/halcon_milenario/scene.gltf');
     const json = await response.json();
     console.log('hope this works ->', json);
->>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
   }
 }
