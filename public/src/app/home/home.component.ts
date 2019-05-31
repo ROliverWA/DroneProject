@@ -75,11 +75,11 @@ export class HomeComponent implements OnInit {
 <<<<<<< HEAD
     // this._router.navigate(['/lobby'])
   }
-  createGame() {
+
 =======
   }
 
-  startGame() {
+  createGame() {
 >>>>>>> 3693b3f1dc3d145da2ba9d502f730b07d7b3089b
     this.isGameStarted = true;
     console.log('start game clicked');
@@ -93,8 +93,6 @@ export class HomeComponent implements OnInit {
     console.log(this.team2);
 <<<<<<< HEAD
 =======
-    this._router.navigate(['/gunner']);
-    // this._router.navigate(['/lobby'])
   }
 
   async renderModel() {
