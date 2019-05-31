@@ -22,9 +22,7 @@ holdSocket() {
 
 } 
 
-createNamespace(name) {
-  const namespace = io.of('/' + name);
-}
+
 
 sendMsg(name="message", message) {
   this.socket.emit(name, message, response => {

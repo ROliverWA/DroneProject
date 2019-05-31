@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
@@ -8,6 +10,7 @@ import { healthMeter} from '../AnimationManager';
 import * as GameControllers from '../GameControllers';
 import * as PlayerManager from '../PlayerManager';
 import { Team, Player } from '../PlayerManager';
+import { SocketService } from '../socket.service';
 
 @Component({
   selector: 'app-gunner',
@@ -28,7 +31,7 @@ export class GunnerComponent implements OnInit {
   color: string;
   ui: boolean = false;
 
-  constructor(
+  constructor(private _socket_service: SocketService,
     private _route: ActivatedRoute
   ) {}
 
@@ -131,7 +134,9 @@ export class GunnerComponent implements OnInit {
     });
   }
 
-
+ sendMsg(name, message) {
+   this._socket_service.sendMsg(name, message);
+ }
 
 
 
