@@ -73,7 +73,7 @@ export class GunnerComponent implements OnInit {
   }
 
   get healthChange() {
-    console.log(this.health);
+    // console.log(this.health);
     return String(this.health);
   }
 

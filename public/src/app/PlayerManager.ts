@@ -111,6 +111,20 @@ export function getPlayers() {
     return players;
 }
 
+export function getTeams() {
+    return teams;
+}
+
+export function getTeamById(id) {
+    for (let i = 0; i < teams.length;i++) {
+        if (teams[i].id === id) {
+            return teams[i]
+        }
+    }
+}
+
+
+
 export function splitTeams(players) {
     if (players.length < 4) {
         return players;
