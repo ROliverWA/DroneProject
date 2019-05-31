@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
@@ -7,6 +9,7 @@ import { useAnimation } from '@angular/animations';
 import { healthMeter} from '../AnimationManager';
 import * as PlayerManager from '../PlayerManager';
 import { Team, Player } from '../PlayerManager';
+import { SocketService } from '../socket.service';
 
 @Component({
   selector: 'app-gunner',
@@ -27,7 +30,7 @@ export class GunnerComponent implements OnInit {
   color: string;
   ui: boolean = false;
 
-  constructor(
+  constructor(private _socket_service: SocketService,
     private _route: ActivatedRoute
   ) {}
 
@@ -91,6 +94,7 @@ export class GunnerComponent implements OnInit {
           scene.createDefaultCameraOrLight(true, false, true);
         }
       );
+      // this.sendTakeoff(1,2);
       return scene;
     };
     const engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
@@ -107,7 +111,9 @@ export class GunnerComponent implements OnInit {
     });
   }
 
-
+ sendMsg(name, message) {
+   this._socket_service.sendMsg(name, message);
+ }
 
 
 
