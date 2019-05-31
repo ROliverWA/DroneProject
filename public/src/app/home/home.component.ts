@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   team1;
   team2;
   isGameStarted: boolean = false;
+  team1Model: any;
 
   constructor(
     private _route: ActivatedRoute,
@@ -22,6 +23,12 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.renderModel();
+    // fetch('./assets/3dModels/halcon_milenario/scene.gltf')
+    //   .then(response => {
+    //     console.log('should be model obj ->', response);
+    //     console.log('idk what this does ->', response.json());
+    //   });
   }
   logPlayer(roll, name, team) {
     PlayerManager.logPlayer(roll, name, team);
@@ -41,10 +48,14 @@ export class HomeComponent implements OnInit {
       console.log(this.players);
       this.team1 = new PlayerManager.Team(this.players['1']);
       this.team2 = new PlayerManager.Team(this.players['2']);
-      console.log(this.team1);
-      console.log(this.team2);
+      console.log('team 1 from home component ->', this.team1);
+      console.log('team 2 from home component ->', this.team2);
       this._router.navigate(['/gunner']);
+    }
 
-
+    async renderModel() {
+      const response = await fetch('./assets/3dModels/halcon_milenario/scene.gltf');
+      const json = await response.json();
+      console.log('hope this works ->', json);
     }
 }
